@@ -7,7 +7,7 @@
             Pokemon pikachu = new Pokemon();
             pikachu.Show();
             pikachu.LevelUp(10).Show();
-            
+
             Pokemon raichu = new Pokemon(10);
             raichu.Show();
 
@@ -18,6 +18,16 @@
             Pokemon megaRaichu = new Pokemon(raichu);
             megaRaichu.Show();
             Pokemon.SLevelUp(megaRaichu, 40, 50, 10).Show();
+
+            float cp = ~megaRaichu;
+            Console.WriteLine(cp);
+
+            Pokemon megaRaichu2 = --megaRaichu;
+            Console.WriteLine(megaRaichu.Stamina) ;
+            Console.WriteLine(megaRaichu2.Stamina);
+            megaRaichu2 = megaRaichu--;
+            Console.WriteLine(megaRaichu.Stamina);
+            Console.WriteLine(megaRaichu2.Stamina);
         }
     }
 }

@@ -98,6 +98,18 @@ namespace ClassesAndObjects
             return p;
         }
 
+        public static float operator ~(Pokemon p)
+        {
+            double power = (Math.Sqrt((p.Stamina))*p.Attack* Math.Sqrt((p.Defence)))/10;
+            return (float)Math.Round(power, 2);
+        }
+
+        //оператор не должен менять значения своих параметров
+        public static Pokemon operator --(Pokemon p)
+        {
+            return new Pokemon { Stamina = (short)(p.Stamina - 1) };
+        }
+
         public void Show()
         {
             Console.WriteLine($"Характеристики покемона\n"+
@@ -105,6 +117,36 @@ namespace ClassesAndObjects
                                 $"Защита - {Defence}\n" +
                                 $"Выносливость - {Stamina}\n");
         }
+
+        //Операции приведение типа 
+        //Явное
+        public static explicit operator int(Pokemon p)
+        {
+            return p.Stamina+p.Attack+p.Defence;
+        }
+        //Неявное
+        public static implicit operator double(Pokemon p)
+        {
+            return Math.Round((double)((p.Stamina + p.Attack + p.Defence) / 3), 2);
+        }
+
+        //Бинарные операции
+        public static Pokemon operator >>(Pokemon p, short stm)
+        {
+            p.Stamina += stm;
+            return p;
+        }
+        public static Pokemon operator >(Pokemon p, short def)
+        {
+            p.Defence += def;
+            return p;
+        }
+        public static Pokemon operator <(Pokemon p, short atk)
+        {
+            p.Attack += atk;
+            return p;
+        }
+
     }
 }
 

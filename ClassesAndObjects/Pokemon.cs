@@ -146,7 +146,6 @@ namespace ClassesAndObjects
             p.Attack += atk;
             return p;
         }
-
     }
 }
 

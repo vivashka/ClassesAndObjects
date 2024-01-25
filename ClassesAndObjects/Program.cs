@@ -28,6 +28,11 @@
             megaRaichu2 = megaRaichu--;
             Console.WriteLine(megaRaichu.Stamina);
             Console.WriteLine(megaRaichu2.Stamina);
+
+            Console.WriteLine("");
+            PokemonArray poks = new PokemonArray(3);
+            Console.WriteLine(poks.ModePokemons());
+            poks.ShowPokemons();
         }
     }
 }

@@ -44,6 +44,7 @@ namespace ClassesAndObjects
                 if (value < 17 || value > 414)
                 {
                     Console.WriteLine("Урон не может быть больше 414 или меньше 17\n");
+                    attack = 17;
                 }
                 else
                 {

@@ -29,10 +29,12 @@
             Console.WriteLine(megaRaichu.Stamina);
             Console.WriteLine(megaRaichu2.Stamina);
 
-            Console.WriteLine("");
-            PokemonArray poks = new PokemonArray(3);
-            Console.WriteLine(poks.ModePokemons());
+            Console.WriteLine("--------------");
+            PokemonArray poks = new PokemonArray(100);
             poks.ShowPokemons();
+            Console.WriteLine($"Мода выносливости = {poks.ModePokemons()}");
+
+
         }
     }
 }

@@ -3,25 +3,14 @@ namespace ClassesAndObjects
 {
     internal class PokemonArray
     {
-        Pokemon[] array = new Pokemon[0];
+        Pokemon[] array;
         static Random random = new Random();
-        public Pokemon[] Arr{
-            get => array;
-            set
-            {
-                if (value == null || value.Length <= 0)
-                {
-                    Console.WriteLine("Количестов покемонов должно быть больше 0");
-                }
-                else
-                {
-                    array = value;
-                }
-            }
+        public int Length{
+            get => array.Length;
         }
         public PokemonArray() 
         {
-            Arr = new Pokemon[3] 
+            array = new Pokemon[3] 
             {
                 new Pokemon(),
                 new Pokemon(),
@@ -31,30 +20,66 @@ namespace ClassesAndObjects
 
         public PokemonArray(int count) 
         {
-            Arr = new Pokemon[count];
+            array = new Pokemon[count];
             for (int i = 0; i < count; i++)
             {
                 short atk = (short)random.Next(17, 414);
                 short def = (short)random.Next(32, 396);
                 short stm = (short)random.Next(1, 496);
-                Arr[i] = new Pokemon(atk, def, stm);
+                array[i] = new Pokemon(atk, def, stm);
             }
+        }
+
+        public PokemonArray(PokemonArray p)
+        {
+            array = new Pokemon[p.Length];
+            for (int i = 0; i < p.Length; i++)
+                array[i] = new Pokemon(p.array[i]);
         }
 
         public void ShowPokemons()
         {
-            for(int i = 0; i < Arr.Length;i++)
+            for(int i = 0; i < array.Length;i++)
             {
-                Console.WriteLine(Arr[i]);
+                array[i].Show();
             }
         }
         public int ModePokemons()
         {
-            int mode = 0;
-            for (int i = 0; i < Arr.Length; i++)
+            short[] staminaArray = new short[array.Length];
+            for (int i = 0; i < array.Length; i++)
             {
-                mode += Arr[i].Stamina;
+                staminaArray[i] = array[i].Stamina;
             }
+            Array.Sort(staminaArray);
+            int count = 1;
+            int maxcount = 0;
+            short mode = 0;
+            for (int i = 0; i < staminaArray.Length - 1; i++)
+            {
+                if (staminaArray[i] == staminaArray[i + 1])
+                {
+                    count++;
+                    if (count > maxcount)
+                    {
+                        maxcount = count;
+                        mode = staminaArray[i];
+                    }
+                }
+                else
+                {
+                    count = 1;
+                }
+            }
+
+            //for (int i = 0; i < staminaArray.Length; i++)
+            //{
+            //    if (array[i].Stamina == mode)
+            //    {
+            //        Console.Write($"{i} - ");
+            //        array[i].Show();
+            //    }
+            //}
             return mode;
         }
     }

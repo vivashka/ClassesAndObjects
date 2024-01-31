@@ -5,50 +5,52 @@
 
         static void Main(string[] args)
         {
-            //
+            Console.WriteLine("Использование конструкторов---------------"); 
             Pokemon pikachu = new Pokemon();
             pikachu.Show();
-            pikachu.LevelUp(10).Show();
 
             Pokemon raichu = new Pokemon(17, 32, 3);
             raichu.Show();
 
-            raichu = new Pokemon(45, 67, 10);
-            raichu.Show();
-            Pokemon.SLevelUp(raichu, 4, 5, -10).Show();
-
             Pokemon megaRaichu = new Pokemon(raichu);
             megaRaichu.Show();
-            Pokemon.SLevelUp(megaRaichu, 40, 50, 10).Show();
 
-            Console.WriteLine(~megaRaichu);
+            Console.WriteLine("Повышение уровня-------------");
+            pikachu.LevelUp(10).Show();
+            Pokemon.SLevelUp(raichu, 4, 5, -10).Show();
+
+            Console.WriteLine("Унарные операции-------------");
+            Console.WriteLine("Сила мегарайчу - " + ~megaRaichu);
             Console.WriteLine(Pokemon.count);
 
             Pokemon megaRaichu2 = --megaRaichu;
-            Console.WriteLine(megaRaichu.Stamina);
-            Console.WriteLine(megaRaichu2.Stamina);
+            Console.WriteLine("Выносливость мегарайчу уменьшилась - " + megaRaichu.Stamina);
+            Console.WriteLine("Выносливость мегарайчу уменьшилась - " + megaRaichu2.Stamina);
             megaRaichu2 = megaRaichu--;
-            Console.WriteLine(megaRaichu.Stamina);
-            Console.WriteLine(megaRaichu2.Stamina);
+            Console.WriteLine("Выносливость мегарайчу уменьшилась - " + megaRaichu.Stamina);
+            Console.WriteLine("Выносливость мегарайчу НЕ уменьшилась - " + megaRaichu2.Stamina);
+            Console.WriteLine("Проверка работы Equals - " + raichu.Equals(megaRaichu));
+            
+            Console.WriteLine("Количество созданных покемонов " + Pokemon.count);
 
-
-
-            Console.WriteLine("--------------");
+            Console.WriteLine("Работа с массивом---------------------------");
             PokemonArray poks = new PokemonArray(10, true);
+            
+            poks[0] = new(1, 1, 1);
+            poks[9] = raichu;
+            poks.ShowPokemons();
+            //Показать для вывода ошибки!!!!
+            //poks[-1] = new(48, 56, 12);
+            //poks[12] = raichu;
+            //poks.ShowPokemons();
+
             int modepoks = ModePokemons(poks);
             Console.WriteLine($"Мода выносливости = {modepoks}");
-            poks[0] = new(1, 1, 1);
-            poks[10] = raichu;
-            poks.ShowPokemons();
-            poks[-1] = new(48, 56, 12);
-            poks[12] = raichu;
-            poks.ShowPokemons();
-            Console.WriteLine(PokemonArray.count);
-            Console.WriteLine(raichu.Equals(poks[1]));
-            if (new Pokemon() == new Pokemon())
-            {
-                Console.WriteLine("норм");
-            }
+
+            Console.WriteLine("Количество созданных коллекций покемонов " + PokemonArray.counter);
+            Console.WriteLine("Количество созданных покемонов " + Pokemon.count);
+            
+
         }
         public static int ModePokemons(PokemonArray array)
         {

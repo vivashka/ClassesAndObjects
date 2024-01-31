@@ -5,7 +5,7 @@ namespace ClassesAndObjects
     {
         Pokemon[] array;
         static Random random = new Random();
-        public static int count = 0;
+        public static int counter;
         public int Length{
             get => array.Length;
         }
@@ -14,14 +14,14 @@ namespace ClassesAndObjects
         {
             get
             {
-                if (index >= 0 && index < array.Length)
+                if (index >= 0 && index <= array.Length)
                     return array[index];
                 else
                     throw new Exception("Индекс выходит за пределы коллекции");
             }
             set
             {
-                if (index >= 0 && index < array.Length)
+                if (index >= 0 && index <= array.Length)
                     array[index] = value;
                 else
                     throw new Exception("Индекс выходит за пределы коллекции");
@@ -30,7 +30,7 @@ namespace ClassesAndObjects
 
         public PokemonArray()
         {
-            count++;
+            counter++;
             array = new Pokemon[3] 
             {
                 new Pokemon(),
@@ -39,13 +39,13 @@ namespace ClassesAndObjects
             };
         }
 
-        public PokemonArray(int count, bool p) 
+        public PokemonArray(int amount, bool p) 
         {
-            count++;
-            array = new Pokemon[count];
+            counter++;
+            array = new Pokemon[amount];
             if (p)
             {
-                for (int i = 0; i < count; i++)
+                for (int i = 0; i < amount; i++)
                 {
                     short atk = (short)random.Next(17, 415);
                     short def = (short)random.Next(32, 397);
@@ -55,7 +55,7 @@ namespace ClassesAndObjects
             }
             else
             {
-                for (int i = 0; i < count; i++)
+                for (int i = 0; i < amount; i++)
                 {
                     Console.WriteLine("Введите атаку от 17 до 414");
                     short atk = LabLibrary.LabLib.ExtensionDoWhile<short>();
@@ -71,7 +71,7 @@ namespace ClassesAndObjects
 
         public PokemonArray(PokemonArray p)
         {
-            count++;
+            counter++;
             array = new Pokemon[p.Length];
             for (int i = 0; i < p.Length; i++)
                 array[i] = new Pokemon(p.array[i]);

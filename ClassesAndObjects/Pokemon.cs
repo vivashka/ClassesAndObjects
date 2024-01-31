@@ -102,13 +102,7 @@ namespace ClassesAndObjects
         {
             if (obj == null) return false;
             if (obj is not Pokemon pokemon) return false;
-            else if (Stamina == pokemon.Stamina
-                    && Defence == pokemon.Defence
-                    && Attack == pokemon.Attack)
-            {
-                return true;
-            }
-            else return false;
+            return Stamina == pokemon.Stamina && Defence == pokemon.Defence && Attack == pokemon.Attack;
         }
 
         public Pokemon LevelUp(short atk = 0, short def = 0, short stm = 0)
@@ -153,25 +147,18 @@ namespace ClassesAndObjects
         //Неявное
         public static implicit operator double(Pokemon p)
         {
-            return Math.Round((double)((p.Stamina + p.Attack + p.Defence) / 3), 2);
+            return Math.Round(((double)(p.Stamina + p.Attack + p.Defence) / 3), 2);
         }
 
         //Бинарные операции
         public static Pokemon operator >>(Pokemon p, short stm)
-        {
-            p.Stamina += stm;
-            return p;
-        }
+        => new Pokemon { Stamina = (short)(p.Stamina + stm) };
+
         public static Pokemon operator >(Pokemon p, short def)
-        {
-            p.Defence += def;
-            return p;
-        }
+            => new Pokemon { Defence = (short)(p.Defence + def) };
+            
         public static Pokemon operator <(Pokemon p, short atk)
-        {
-            p.Attack += atk;
-            return p;
-        }
+        => new Pokemon { Attack = (short)(p.Attack + atk) };
     }
 }
 

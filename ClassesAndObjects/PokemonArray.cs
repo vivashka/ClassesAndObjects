@@ -16,25 +16,20 @@ namespace ClassesAndObjects
             {
                     if (index >= 0 && index < array.Length)
                         return array[index];
-                    throw new IndexOutOfRangeException();
+                    else
+                        throw new Exception("Индекс выходит за пределы коллекции");
 
             }
             set
             {
-                try
-                {
-                    if (index >= 0 && index < array.Length)
-                        array[index] = value;
-                    throw new IndexOutOfRangeException();
-                }
-                catch
-                {
-                    Console.WriteLine("В массиве нет таких значений");
-                }
+                if (index >= 0 && index < array.Length)
+                    array[index] = value;
+                else
+                    throw new Exception("Индекс выходит за пределы коллекции");
             }
         }
 
-        public PokemonArray() 
+        public PokemonArray()
         {
             count++;
             array = new Pokemon[3] 

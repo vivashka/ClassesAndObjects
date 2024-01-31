@@ -8,6 +8,38 @@ namespace ClassesAndObjects
         public int Length{
             get => array.Length;
         }
+
+        public Pokemon this[int index]
+        {
+            get
+            {
+                try
+                {
+                    if (index >= 0 && index < array.Length)
+                        return array[index];
+                    throw new IndexOutOfRangeException();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    return array[0];
+                }
+            }
+            set
+            {
+                try
+                {
+                    if (index >= 0 && index < array.Length)
+                        array[index] = value;
+                    throw new IndexOutOfRangeException();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+        }
+
         public PokemonArray() 
         {
             array = new Pokemon[3] 
@@ -18,7 +50,7 @@ namespace ClassesAndObjects
             };
         }
 
-        public PokemonArray(int count) 
+        public PokemonArray(int count, bool p) 
         {
             array = new Pokemon[count];
             for (int i = 0; i < count; i++)

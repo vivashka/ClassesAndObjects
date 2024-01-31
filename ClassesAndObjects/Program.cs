@@ -42,6 +42,7 @@
             poks[-1] = new(48, 56, 12);
             poks[12] = raichu;
             poks.ShowPokemons();
+            Console.WriteLine(PokemonArray.count);
 
         }
         public static int ModePokemons(PokemonArray array)

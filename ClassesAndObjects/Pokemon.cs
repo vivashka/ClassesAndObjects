@@ -41,14 +41,17 @@ namespace ClassesAndObjects
             get => attack;
             set
             {
-                if (value < 17 || value > 414)
-                {
-                    Console.WriteLine("Урон не может быть больше 414 или меньше 17\n");
-                    attack = 17;
-                }
-                else
+                try
                 {
                     attack = value;
+                    if (value < 17 || value > 414)
+                    {
+                        throw new Exception("Атака превышает допустимые значение от 17 до 414");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Ошибка диапазона - {e.Message}");
                 }
             }
         }
@@ -57,13 +60,17 @@ namespace ClassesAndObjects
             get { return defense; }
             set
             {
-                if (value < 32 || value > 396)
-                {
-                    Console.WriteLine("Защита не может быть больше 396 или меньше 32\n");
-                }
-                else
+                try
                 {
                     defense = value;
+                    if (value < 32 || value > 396)
+                    {
+                        throw new Exception("Защита превышает допустимые значения от 32 до 396");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Ошибка диапазона - {e.Message}");
                 }
             }
         }
@@ -73,13 +80,17 @@ namespace ClassesAndObjects
             get => stamina;
             set
             {
-                if (value < 1 || value > 496)
-                {
-                    Console.WriteLine("Защита не может быть больше 496 или меньше 1\n");
-                }
-                else
+                try
                 {
                     stamina = value;
+                    if (value < 17 || value > 414)
+                    {
+                        throw new Exception("Выносливость превышает допустимые значение от 1 до 496");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Ошибка диапазона - {e.Message}");
                 }
             }
         }

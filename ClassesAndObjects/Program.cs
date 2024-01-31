@@ -19,8 +19,8 @@
             megaRaichu.Show();
             Pokemon.SLevelUp(megaRaichu, 40, 50, 10).Show();
 
-            float cp = ~megaRaichu;
-            Console.WriteLine(cp);
+            Console.WriteLine(~megaRaichu);
+            Console.WriteLine(Pokemon.count);
 
             Pokemon megaRaichu2 = --megaRaichu;
             Console.WriteLine(megaRaichu.Stamina) ;

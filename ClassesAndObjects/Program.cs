@@ -25,12 +25,12 @@
             //Console.WriteLine(~megaRaichu);
             //Console.WriteLine(Pokemon.count);
 
-            Pokemon megaRaichu2 = --megaRaichu;
-            Console.WriteLine(megaRaichu.Stamina);
-            Console.WriteLine(megaRaichu2.Stamina);
-            megaRaichu2 = megaRaichu--;
-            Console.WriteLine(megaRaichu.Stamina);
-            Console.WriteLine(megaRaichu2.Stamina);
+            //Pokemon megaRaichu2 = --megaRaichu;
+            //Console.WriteLine(megaRaichu.Stamina);
+            //Console.WriteLine(megaRaichu2.Stamina);
+            //megaRaichu2 = megaRaichu--;
+            //Console.WriteLine(megaRaichu.Stamina);
+            //Console.WriteLine(megaRaichu2.Stamina);
 
 
 

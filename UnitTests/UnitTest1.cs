@@ -76,9 +76,11 @@ namespace UnitTests
             //Act
             Pokemon moreStm = new Pokemon(pokemon >> 5);
             Pokemon moreDef = new Pokemon(pokemon > 10);
+            Pokemon moreAtk = new Pokemon(pokemon < 10);
             //Assert
-            Assert.AreNotEqual(moreDef.Stamina, pokemon.Stamina);
-            Assert.AreNotEqual(moreDef, pokemon.Stamina);
+            Assert.AreNotEqual(moreDef.Stamina, pokemon.Defence);
+            Assert.AreNotEqual(moreStm, pokemon.Stamina);
+            Assert.AreNotEqual(moreAtk, pokemon.Attack);
         }
 
         [TestMethod]

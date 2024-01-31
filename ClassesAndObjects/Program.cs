@@ -9,7 +9,9 @@
             //pikachu.Show();
             //pikachu.LevelUp(10).Show();
 
-            Pokemon raichu = new Pokemon(20);
+            Pokemon raichu = new Pokemon();
+            raichu.Show();
+            Console.WriteLine("Характеристики покемона\nУрон - 17\nЗащита - 32\nВыносливость - 1\n");
             //raichu.Show();
 
             //raichu = new Pokemon(45, 67, 10);
@@ -36,14 +38,18 @@
             PokemonArray poks = new PokemonArray(10, true);
             int modepoks = ModePokemons(poks);
             Console.WriteLine($"Мода выносливости = {modepoks}");
-            poks[0] = new(48, 56, 12);
+            poks[0] = new(1, 1, 1);
             poks[10] = raichu;
             poks.ShowPokemons();
             poks[-1] = new(48, 56, 12);
             poks[12] = raichu;
             poks.ShowPokemons();
             Console.WriteLine(PokemonArray.count);
-
+            Console.WriteLine(raichu.Equals(poks[1]));
+            if (new Pokemon() == new Pokemon())
+            {
+                Console.WriteLine("норм");
+            }
         }
         public static int ModePokemons(PokemonArray array)
         {

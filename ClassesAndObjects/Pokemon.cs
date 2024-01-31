@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassesAndObjects
 {
-    internal class Pokemon
+    public class Pokemon
     {
         short attack;
         short defense;
@@ -46,6 +46,7 @@ namespace ClassesAndObjects
                     attack = value;
                     if (value < 17 || value > 414)
                     {
+                        attack = 17;
                         throw new Exception("Атака превышает допустимые значение от 17 до 414");
                     }
                 }
@@ -65,6 +66,7 @@ namespace ClassesAndObjects
                     defense = value;
                     if (value < 32 || value > 396)
                     {
+                        defense = 32;
                         throw new Exception("Защита превышает допустимые значения от 32 до 396");
                     }
                 }
@@ -85,6 +87,7 @@ namespace ClassesAndObjects
                     stamina = value;
                     if (value < 1 || value > 496)
                     {
+                        stamina = 1;
                         throw new Exception("Выносливость превышает допустимые значение от 1 до 496");
                     }
                 }
@@ -98,7 +101,14 @@ namespace ClassesAndObjects
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
-            return true;
+            if (obj is not Pokemon pokemon) return false;
+            else if (Stamina == pokemon.Stamina
+                    && Defence == pokemon.Defence
+                    && Attack == pokemon.Attack)
+            {
+                return true;
+            }
+            else return false;
         }
 
         public Pokemon LevelUp(short atk = 0, short def = 0, short stm = 0)
@@ -131,10 +141,7 @@ namespace ClassesAndObjects
 
         public void Show()
         {
-            Console.WriteLine($"Характеристики покемона\n"+
-                                $"Урон - {Attack}\n" +
-                                $"Защита - {Defence}\n" +
-                                $"Выносливость - {Stamina}\n");
+            Console.WriteLine($"Характеристики покемона\nУрон - {Attack}\nЗащита - {Defence}\nВыносливость - {Stamina}\n");
         }
 
         //Операции приведение типа 

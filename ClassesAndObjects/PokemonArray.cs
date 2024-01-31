@@ -1,7 +1,7 @@
 ﻿
 namespace ClassesAndObjects
 {
-    internal class PokemonArray
+    public class PokemonArray
     {
         Pokemon[] array;
         static Random random = new Random();
@@ -14,17 +14,10 @@ namespace ClassesAndObjects
         {
             get
             {
-                try
-                {
                     if (index >= 0 && index < array.Length)
                         return array[index];
                     throw new IndexOutOfRangeException();
-                }
-                catch
-                {
-                    Console.WriteLine("Ошибка выхода за массив");
-                    return array[0];
-                }
+
             }
             set
             {

@@ -5,6 +5,7 @@ namespace ClassesAndObjects
     {
         Pokemon[] array;
         static Random random = new Random();
+        public static int count = 0;
         public int Length{
             get => array.Length;
         }
@@ -19,9 +20,9 @@ namespace ClassesAndObjects
                         return array[index];
                     throw new IndexOutOfRangeException();
                 }
-                catch (Exception e)
+                catch
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Ошибка выхода за массив");
                     return array[0];
                 }
             }
@@ -33,15 +34,16 @@ namespace ClassesAndObjects
                         array[index] = value;
                     throw new IndexOutOfRangeException();
                 }
-                catch (Exception e)
+                catch
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("В массиве нет таких значений");
                 }
             }
         }
 
         public PokemonArray() 
         {
+            count++;
             array = new Pokemon[3] 
             {
                 new Pokemon(),
@@ -52,18 +54,37 @@ namespace ClassesAndObjects
 
         public PokemonArray(int count, bool p) 
         {
+            count++;
             array = new Pokemon[count];
-            for (int i = 0; i < count; i++)
+            if (p)
             {
-                short atk = (short)random.Next(17, 414);
-                short def = (short)random.Next(32, 396);
-                short stm = (short)random.Next(1, 496);
-                array[i] = new Pokemon(atk, def, stm);
+                for (int i = 0; i < count; i++)
+                {
+                    short atk = (short)random.Next(17, 415);
+                    short def = (short)random.Next(32, 397);
+                    short stm = (short)random.Next(1, 497);
+                    array[i] = new Pokemon(atk, def, stm);
+                }
             }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    Console.WriteLine("Введите атаку от 17 до 414");
+                    short atk = LabLibrary.LabLib.ExtensionDoWhile<short>();
+                    Console.WriteLine("Введите защиту от 32 до 396");
+                    short def = LabLibrary.LabLib.ExtensionDoWhile<short>();
+                    Console.WriteLine("Введите атаку от 1 до 496");
+                    short stm = LabLibrary.LabLib.ExtensionDoWhile<short>();
+                    array[i] = new Pokemon(atk, def, stm);
+                }
+            }
+            
         }
 
         public PokemonArray(PokemonArray p)
         {
+            count++;
             array = new Pokemon[p.Length];
             for (int i = 0; i < p.Length; i++)
                 array[i] = new Pokemon(p.array[i]);
@@ -75,44 +96,6 @@ namespace ClassesAndObjects
             {
                 array[i].Show();
             }
-        }
-        public int ModePokemons()
-        {
-            short[] staminaArray = new short[array.Length];
-            for (int i = 0; i < array.Length; i++)
-            {
-                staminaArray[i] = array[i].Stamina;
-            }
-            Array.Sort(staminaArray);
-            int count = 1;
-            int maxcount = 0;
-            short mode = 0;
-            for (int i = 0; i < staminaArray.Length - 1; i++)
-            {
-                if (staminaArray[i] == staminaArray[i + 1])
-                {
-                    count++;
-                    if (count > maxcount)
-                    {
-                        maxcount = count;
-                        mode = staminaArray[i];
-                    }
-                }
-                else
-                {
-                    count = 1;
-                }
-            }
-
-            //for (int i = 0; i < staminaArray.Length; i++)
-            //{
-            //    if (array[i].Stamina == mode)
-            //    {
-            //        Console.Write($"{i} - ");
-            //        array[i].Show();
-            //    }
-            //}
-            return mode;
         }
     }
 }

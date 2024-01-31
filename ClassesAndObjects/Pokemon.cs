@@ -20,7 +20,7 @@ namespace ClassesAndObjects
             count++;
         }
         
-        public Pokemon(short atk = 0, short def = 0, short stm = 0)
+        public Pokemon(short atk = 17, short def = 32, short stm = 1)
         {
             Attack = atk;
             Defence = def;
@@ -83,7 +83,7 @@ namespace ClassesAndObjects
                 try
                 {
                     stamina = value;
-                    if (value < 17 || value > 414)
+                    if (value < 1 || value > 496)
                     {
                         throw new Exception("Выносливость превышает допустимые значение от 1 до 496");
                     }
@@ -94,6 +94,13 @@ namespace ClassesAndObjects
                 }
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            return true;
+        }
+
         public Pokemon LevelUp(short atk = 0, short def = 0, short stm = 0)
         {
             Attack += atk;

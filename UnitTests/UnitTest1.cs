@@ -1,4 +1,5 @@
 using ClassesAndObjects;
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace UnitTests
 {
@@ -104,6 +105,7 @@ namespace UnitTests
             Assert.AreEqual(pokemonArray[1], pokemonArray[1]);
             Assert.AreEqual(pokemonArrMain.Length, 3);
         }
+
         [TestMethod]
         public void TestPokemonArrayRange()
         {
@@ -114,6 +116,18 @@ namespace UnitTests
             Assert.ThrowsException<Exception>(() => (poks[12]));
         }
 
+        [TestMethod]
+        public void TestProgramMode()
+        {
+            //Arrange
+            PokemonArray pokemon = new PokemonArray(50, true);
+
+            //Act
+            int mode = ClassesAndObjects.Program.ModePokemons(pokemon);
+
+            //Assert
+            Assert.IsNotNull(mode);
+        }
 
     }
 }

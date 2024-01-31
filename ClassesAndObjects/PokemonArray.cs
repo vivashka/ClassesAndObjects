@@ -14,11 +14,10 @@ namespace ClassesAndObjects
         {
             get
             {
-                    if (index >= 0 && index < array.Length)
-                        return array[index];
-                    else
-                        throw new Exception("Индекс выходит за пределы коллекции");
-
+                if (index >= 0 && index < array.Length)
+                    return array[index];
+                else
+                    throw new Exception("Индекс выходит за пределы коллекции");
             }
             set
             {

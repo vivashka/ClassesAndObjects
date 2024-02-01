@@ -35,7 +35,7 @@ namespace ClassesAndObjects
             Stamina = p.Stamina;
             Count++;
         }
-        public int Count
+        public static int Count
         {
             get => count;
             set => count = value;

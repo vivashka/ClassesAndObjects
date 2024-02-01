@@ -21,7 +21,7 @@
 
             Console.WriteLine("Унарные операции-------------");
             Console.WriteLine("Сила мегарайчу - " + ~megaRaichu);
-            Console.WriteLine(Pokemon.count);
+            Console.WriteLine(Pokemon.Count);
 
             Pokemon megaRaichu2 = --megaRaichu;
             Console.WriteLine("Выносливость мегарайчу уменьшилась - " + megaRaichu.Stamina);
@@ -31,7 +31,7 @@
             Console.WriteLine("Выносливость мегарайчу НЕ уменьшилась - " + megaRaichu2.Stamina);
             Console.WriteLine("Проверка работы Equals - " + raichu.Equals(megaRaichu));
             
-            Console.WriteLine("Количество созданных покемонов " + Pokemon.count);
+            Console.WriteLine("Количество созданных покемонов " + Pokemon.Count);
 
             Console.WriteLine("Работа с массивом---------------------------");
             PokemonArray poks = new PokemonArray(10, true);
@@ -47,8 +47,8 @@
             int modepoks = ModePokemons(poks);
             Console.WriteLine($"Мода выносливости = {modepoks}");
 
-            Console.WriteLine("Количество созданных коллекций покемонов " + PokemonArray.counter);
-            Console.WriteLine("Количество созданных покемонов " + Pokemon.count);
+            Console.WriteLine("Количество созданных коллекций покемонов " + PokemonArray.Counter);
+            Console.WriteLine("Количество созданных покемонов " + Pokemon.Count);
             
 
         }

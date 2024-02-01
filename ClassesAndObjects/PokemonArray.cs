@@ -5,10 +5,15 @@ namespace ClassesAndObjects
     {
         Pokemon[] array;
         static Random random = new Random();
-        public static int counter;
+        static int counter;
         public int Length
         {
             get => array.Length;
+        }
+        public static int Counter
+        {
+            get => counter;
+            set => counter = value;
         }
 
         public Pokemon this[int index]
@@ -24,14 +29,12 @@ namespace ClassesAndObjects
             {
                 if (index >= 0 && index <= array.Length)
                     array[index] = value;
-                else
-                    throw new Exception("Индекс выходит за пределы коллекции");
             }
         }
 
         public PokemonArray()
         {
-            counter++;
+            Counter++;
             array = new Pokemon[3] 
             {
                 new Pokemon(),
@@ -42,7 +45,7 @@ namespace ClassesAndObjects
 
         public PokemonArray(int amount, bool p) 
         {
-            counter++;
+            Counter++;
             array = new Pokemon[amount];
             if (p)
             {
@@ -72,7 +75,7 @@ namespace ClassesAndObjects
 
         public PokemonArray(PokemonArray p)
         {
-            counter++;
+            Counter++;
             array = new Pokemon[p.Length];
             for (int i = 0; i < p.Length; i++)
                 array[i] = new Pokemon(p.array[i]);

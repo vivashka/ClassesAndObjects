@@ -1,23 +1,23 @@
 ﻿namespace ClassesAndObjects
 {
-    public class Program
+    internal class Program
     {
 
         static void Main(string[] args)
         {
             Console.WriteLine("Использование конструкторов---------------"); 
             Pokemon pikachu = new Pokemon();
-            pikachu.Show();
+            Console.WriteLine(pikachu); 
 
             Pokemon raichu = new Pokemon(17, 32, 3);
-            raichu.Show();
+            Console.WriteLine(raichu);
 
             Pokemon megaRaichu = new Pokemon(raichu);
-            megaRaichu.Show();
+            Console.WriteLine(megaRaichu);
 
             Console.WriteLine("Повышение уровня-------------");
-            pikachu.LevelUp(10).Show();
-            Pokemon.SLevelUp(raichu, 4, 5, -10).Show();
+            Console.WriteLine(pikachu.LevelUp(10)); 
+            Console.WriteLine(Pokemon.SLevelUp(raichu, 4, 5, -10));
 
             Console.WriteLine("Унарные операции-------------");
             Console.WriteLine("Сила мегарайчу - " + ~megaRaichu);
@@ -38,7 +38,7 @@
             
             poks[0] = new(1, 1, 1);
             poks[9] = raichu;
-            poks.ShowPokemons();
+            Console.WriteLine(poks.ShowPokemons()); 
             //Показать для вывода ошибки!!!!
             //poks[-1] = new(48, 56, 12);
             //poks[12] = raichu;

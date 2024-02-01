@@ -6,7 +6,8 @@ namespace ClassesAndObjects
         Pokemon[] array;
         static Random random = new Random();
         public static int counter;
-        public int Length{
+        public int Length
+        {
             get => array.Length;
         }
 
@@ -77,12 +78,14 @@ namespace ClassesAndObjects
                 array[i] = new Pokemon(p.array[i]);
         }
 
-        public void ShowPokemons()
+        public string ShowPokemons()
         {
+            string printPoks = "";
             for(int i = 0; i < array.Length;i++)
             {
-                array[i].Show();
+                printPoks += array[i];
             }
+            return printPoks;
         }
     }
 }

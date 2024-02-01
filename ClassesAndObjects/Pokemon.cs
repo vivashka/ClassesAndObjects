@@ -11,13 +11,13 @@ namespace ClassesAndObjects
         short attack;
         short defense;
         short stamina;
-        public static int count;
+        static int count;
         public Pokemon()
         {
             Attack = 17;
             Defence = 32;
             Stamina = 1;
-            count++;
+            Count++;
         }
         
         public Pokemon(short atk = 17, short def = 32, short stm = 1)
@@ -25,7 +25,7 @@ namespace ClassesAndObjects
             Attack = atk;
             Defence = def;
             Stamina = stm;
-            count++;
+            Count++;
         }
 
         public Pokemon(Pokemon p)
@@ -33,9 +33,13 @@ namespace ClassesAndObjects
             Attack = p.Attack;
             Defence = p.Defence;
             Stamina = p.Stamina;
-            count++;
+            Count++;
         }
-
+        public int Count
+        {
+            get => count;
+            set => count = value;
+        }
         public short Attack
         {
             get => attack;
@@ -46,13 +50,14 @@ namespace ClassesAndObjects
                     attack = value;
                     if (value < 17 || value > 414)
                     {
-                        attack = 17;
+                        
                         throw new Exception("Атака превышает допустимые значение от 17 до 414");
                     }
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine($"Ошибка диапазона - {e.Message}");
+                    attack = 17;
                 }
             }
         }
@@ -66,13 +71,13 @@ namespace ClassesAndObjects
                     defense = value;
                     if (value < 32 || value > 396)
                     {
-                        defense = 32;
                         throw new Exception("Защита превышает допустимые значения от 32 до 396");
                     }
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine($"Ошибка диапазона - {e.Message}");
+                    defense = 32;
                 }
             }
         }
@@ -87,13 +92,13 @@ namespace ClassesAndObjects
                     stamina = value;
                     if (value < 1 || value > 496)
                     {
-                        stamina = 1;
                         throw new Exception("Выносливость превышает допустимые значение от 1 до 496");
                     }
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine($"Ошибка диапазона - {e.Message}");
+                    stamina = 1;
                 }
             }
         }
@@ -133,9 +138,9 @@ namespace ClassesAndObjects
             return new Pokemon { Stamina = (short)(p.Stamina - 1) };
         }
 
-        public void Show()
+        public override string ToString()
         {
-            Console.WriteLine($"Характеристики покемона\nУрон - {Attack}\nЗащита - {Defence}\nВыносливость - {Stamina}\n");
+            return $"\nХарактеристики покемона\nУрон - {Attack}\nЗащита - {Defence}\nВыносливость - {Stamina}\n";
         }
 
         //Операции приведение типа 

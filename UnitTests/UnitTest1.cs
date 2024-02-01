@@ -116,18 +116,46 @@ namespace UnitTests
             Assert.ThrowsException<Exception>(() => (poks[12]));
         }
 
+        //[TestMethod]
+        //public void TestProgramMode()
+        //{
+        //    //Arrange
+        //    PokemonArray pokemon = new PokemonArray(50, true);
+
+        //    //Act
+        //    int mode = ClassesAndObjects.Program.ModePokemons(pokemon);
+
+        //    //Assert
+        //    Assert.IsNotNull(mode);
+        //}
+
         [TestMethod]
-        public void TestProgramMode()
+        public void TestPokemonShow()
         {
             //Arrange
-            PokemonArray pokemon = new PokemonArray(50, true);
+            Pokemon pokemon = new Pokemon();
 
             //Act
-            int mode = ClassesAndObjects.Program.ModePokemons(pokemon);
+            string pokeball = pokemon.ToString();
+
+            string expect = $"\nХарактеристики покемона\nУрон - 17\nЗащита - 32\nВыносливость - 1\n";
 
             //Assert
-            Assert.IsNotNull(mode);
+            Assert.AreEqual(pokeball, expect);
         }
+        [TestMethod]
+        public void TestPokemonArrayShow()
+        {
+            //Arrange
+            PokemonArray pokemon = new PokemonArray();
 
+            //Act
+            string pokeball = pokemon.ShowPokemons();
+
+            string expect = $"\nХарактеристики покемона\nУрон - 17\nЗащита - 32\nВыносливость - 1\n\nХарактеристики покемона\nУрон - 17\nЗащита - 32\nВыносливость - 1\n\nХарактеристики покемона\nУрон - 17\nЗащита - 32\nВыносливость - 1\n";
+
+            //Assert
+            Assert.AreEqual(pokeball, expect);
+        }
     }
 }

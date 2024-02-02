@@ -1,5 +1,4 @@
 using ClassesAndObjects;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 
 namespace UnitTests
 {
@@ -22,7 +21,6 @@ namespace UnitTests
             Assert.AreEqual(pok1, pok3);
             Assert.AreNotEqual(pok1, pok2);
             Assert.AreEqual(pok1, pokCopy);
-            
         }
 
         [TestMethod]

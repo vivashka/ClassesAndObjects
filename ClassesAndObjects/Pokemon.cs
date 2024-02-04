@@ -147,7 +147,7 @@ namespace ClassesAndObjects
         //Явное
         public static explicit operator int(Pokemon p)
         {
-            return p.Stamina+p.Attack+p.Defence;
+            return p.Stamina + p.Attack + p.Defence;
         }
         //Неявное
         public static implicit operator double(Pokemon p)

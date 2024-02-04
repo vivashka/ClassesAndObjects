@@ -7,6 +7,8 @@
         {
             Console.WriteLine("Использование конструкторов---------------"); 
             Pokemon pikachu = new Pokemon();
+            double x = pikachu;
+            Console.WriteLine(x);
             Console.WriteLine(pikachu); 
 
             Pokemon raichu = new Pokemon(17, 32, 3);
